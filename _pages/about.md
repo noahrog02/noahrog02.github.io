@@ -8,6 +8,7 @@ redirect_from:
 ---
 
 ignore: [link wird so gemacht](https://google.com)
+
 Introduction
 ======
 Money is a fundamental element of the stock market, where vast sums are exchanged daily. For example, one of the world's largest Exchanges, the NYSE, handles over $2 trillion in transactions each day. The stock market therefore plays a critifcal role in global finance
