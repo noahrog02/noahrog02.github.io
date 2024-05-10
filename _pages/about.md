@@ -48,15 +48,21 @@ Machine learning is a subset of artificial intelligence that involvses algorithm
 Survey of current ML Approaches
 ======
 - Analysis of current literature and findings (related work)
--Here i will give a good performing working method to each of the sectors mentioned in the last topic-
 
-**Stock price prediction**
+**Dataset and Input**
 
-**Stock movement prediction**
+Input essentially comes down to instrinsic (extracted from the stock itself) and extrinsic (text, fundamental data, industrial knowledge graphs, ...) data. The features of our input are:
+- Time series data
+- Text in form of news or articles
+- Graphs e.g. industrial knowledge graph
+- Others like Image/Audio data
 
-**Portfolio management**
+**Examples**
 
-**Others**
+Out of every subsection of used ML methods, i will quickly name a few examples based on papers that used these methods.
+- Example 1
+- Example 2
+- Example 3
 
 Deep dive into a specific ML Method (I am currently thinking about LSTM or RL)
 ======
