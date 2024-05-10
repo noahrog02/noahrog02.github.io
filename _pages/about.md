@@ -7,13 +7,15 @@ redirect_from:
   - /about.html
 ---
 
-Test
-
+ignore: [link wird so gemacht](https://google.com)
 Introduction
 ======
-[link wird so gemacht](https://google.com)
-1) Overview of stock market
-2) Evolution of technology in stock market prediction
+Money is a fundamental element of the stock market, where vast sums are exchanged daily. For example, one of the world's largest Exchanges, the NYSE, handles over $2 trillion in transactions each day. The stock market therefore plays a critifcal role in global finance
+**What is the Stock Market**
+The stock market is a collection of markets where stocks, representing ownership in companies, are bought and sold. For companies, the stock market is a crucial mechanism to raise capital and in exchange offering investors opportunities to gain returns on their investment. 
+
+**Evolution of Technology in Stock Market Predictions**
+When it comes to predicting prize movements, probably the oldest methods are simple chart analysis and manual calculations. Even though equations might be updated, these methods are still used today, but as the financial world grew, so did the need for faster and more accurate methods. This leads to the introduction of electronic trading systems in the late 20th century, which were soon followed by algorithmic trading. Algorithmic Trading utilized complex mathematical models to make rapid trading decisions. Today, the integration of Big Data and Artifical Intelligence represents are new movement in market prediction. This blog post aims to dive into the Machine Learning aspect of these new Methods, to show what has already been achieved and what might be possible in the future. 
 
 Overview of Machine Learning in Stock Market
 ======
