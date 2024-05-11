@@ -38,7 +38,10 @@ These methods are used, either standalone or in combination, in various areas of
 
 Machine learning is a subset of artificial intelligence that involvses algorithms and statistical models that enable computers to perform different tasks without instructions. In this blog post, we will focus on the following ML methods:
 -Here i will mention and give a small introduction to each:-
-- RNN
+- Recurrent Neural Networks (RNN) are powerful in handling and predicting sequences of data. Unlinke traditional feed forward neural networks that process inputs independently, RNNs have loops within them that allows information to persist. This makes them ideal for tasks where context from previous data helps predicting the next output. So perfect for Stocks which is just time-series data. By variating the standard RNN you can obtain even better results. Two variants are: 
+  - Long Short-Term Memory Networks (LSTMs) to avoid the long-term dependency problem. They are practically good in remembering information for longer periods without forgetting important details by having additional input, forget and output gates. These gates determine what information should be remembered or forgotten as data flows through the network. Here, the input gate decides, which data should be used to influence the memory. The forget gate decides which values from the input should be kept or forgotten and the output gate determines what from the current memory state should be output. This makes them extremely effective for tasks involving complex dependencies over time, such as long-term stock behaviour. 
+  - Gated Recurrent Units (GRUs) are an evolution of LSTMs trying to simplify the model for faster learning while keeping it's functionality. They achieve this by combining the input and forget gates into a single update gate and add a reset gate to determine how much of the past information should be forgotten. They again only have one output stream which also adds to the improved learning speed of the model.
+![RNN-Variants](images/RNN_variants.png)
 - GNN
 - CNN
 - Transformers
@@ -60,7 +63,8 @@ Input essentially comes down to instrinsic (extracted from the stock itself) and
 **Examples**
 
 Out of every subsection of used ML methods, i will quickly name a few examples based on papers that used these methods.
-- Example 1
+- Akita et al created a LSTM based model that takes Text and Stock data as input to predict future prices. By taking ten companies and representing them as news, then transforming these news into so called paragraph vectors they manage to provide numerical data for the LSTM that it can work with. $P_{t}$ will become a vector of the numerical news values and $N_{t}$ are the corresponding stock prices at the timestamp t. These two vectors then get concatenated and put into the LSTM as an input. The corresponding output of the network will be $N_{t+1}$ where you can use basic loss functions to train the network. The reason behind taking ten companies and their news at a specific time is to look for a correlation between the impact of news from one company to the stock price of others. This LSTM methods beats the baselines of other RNN methods used in predicting opening stock prices
+![Akita_LSTM](images/LSTM_Aktia.png)
 - Example 2
 - Example 3
 
