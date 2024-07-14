@@ -84,7 +84,7 @@ CNNs are often used for processing and analyzing visual data. They work by autom
 
 ![CNN](images/CNN.jpg)
 
-By slightly changing the problem formulation and constructing an image like input data it is still possible to use these CNN Models in the stock market. To create a grid like input, Lu et al. [2] created a 2D-Array representing a 10-day historical time series where each column is representing a day and the rows represent the opening price, closing price, highest price, lowest price and trading volume of each day. After a simple standarization process this input data is then acting as an input for a CNN Model which will input its extracted features into a LSTM Layer. This LSTM Layer will then produce many different output values that need to be g processed by a full connection layer to produce a singe Closing Price $$T+1$$ for the stock. 
+By slightly changing the problem formulation and constructing an image like input data it is still possible to use these CNN Models in the stock market. To create a grid like input, Lu et al. [2] created a 2D-Array representing a 10-day historical time series where each column is representing a day and the rows represent the opening price, closing price, highest price, lowest price and trading volume of each day. After a simple standarization process this input data is then acting as an input for a CNN Model which will input its extracted features into a LSTM Layer. This LSTM Layer will then produce many different output values that need to be processed by a full connection layer to produce a single closing price $$T+1$$ for the stock. 
 
 ![CNN-LSTM](images/CNN_LSTM.jpg)
 
