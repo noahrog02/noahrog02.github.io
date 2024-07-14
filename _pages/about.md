@@ -47,33 +47,44 @@ This graph from Liu et al. displays how with the use of their DDPG agent they ou
 
 It is therefore very possible to beat markets and make more money than the normal trader by using Machine Learning. We will now come to evaluate different Machine Learning models and how they can be used to fulfill the named applications. 
 
-**Used models in Stock Market**
-
-In this blog post, we will focus on the following ML methods:
-
-![ML-Variants](images/Different_MLs.png)
-
-**Recurrent Neural Networks (RNN)** are powerful in handling and predicting sequences of data. Unlinke traditional feed forward neural networks that process inputs independently, RNNs have loops within them that allows information to persist. This makes them ideal for tasks where context from previous data helps predicting the next output. So perfect for Stocks which is just time-series data. By variating the standard RNN you can obtain even better results. Two variants are: 
-- Long Short-Term Memory Networks (LSTMs) to avoid the long-term dependency problem. They are practically good in remembering information for longer periods without forgetting important details by having additional input, forget and output gates. These gates determine what information should be remembered or forgotten as data flows through the network. Here, the input gate decides, which data should be used to influence the memory. The forget gate decides which values from the input should be kept or forgotten and the output gate determines what from the current memory state should be output. This makes them extremely effective for tasks involving complex dependencies over time, such as long-term stock behaviour. 
-- Gated Recurrent Units (GRUs) are an evolution of LSTMs trying to simplify the model for faster learning while keeping it's functionality. They achieve this by combining the input and forget gates into a single update gate and add a reset gate to determine how much of the past information should be forgotten. They again only have one output stream which also adds to the improved learning speed of the model.
-![RNN-Variants](images/RNN_variants.png)
-
-**GNN**
-**CNN**
-**Transformers**
-**RL**
-
 Survey of current ML Approaches
 ======
-- Analysis of current literature and findings (related work)
 
-**Dataset and Input**
+Now to survey different approaches and usecases we will quickly clear off what kind of input we usually have when working with Machine Learning and the Stock Market
 
 Input essentially comes down to instrinsic (extracted from the stock itself) and extrinsic (text, fundamental data, industrial knowledge graphs, ...) data. The features of our input are:
 - Time series data
 - Text in form of news or articles
 - Graphs e.g. industrial knowledge graph
 - Others like Image/Audio data
+
+Yet every input in some way needs to be converted to a numerical value that the machine can really work with. 
+
+**Used models in Stock Market**
+
+In this blog post, we will focus on the following ML methods:
+
+![ML-Variants](images/Different_MLs.png)
+
+**Recurrent Neural Networks (RNN)** are powerful in handling and predicting sequences of data. Unlinke traditional feed forward neural networks that process inputs independently, RNNs have loops within them that allows information to persist. This makes them ideal for tasks where context from previous data helps predicting the next output. So perfect for Stocks which is just time-series data. By variating the standard RNN one can obtain even better results. Two variants are: 
+- Long Short-Term Memory Networks (LSTMs) to avoid the long-term dependency problem. They are practically good in remembering information for longer periods without forgetting important details by having additional input, forget and output gates. These gates determine what information should be remembered or forgotten as data flows through the network. Here, the input gate decides, which data should be used to influence the memory. The forget gate decides which values from the input should be kept or forgotten and the output gate determines what from the current memory state should be output. This makes them extremely effective for tasks involving complex dependencies over time, such as long-term stock behaviour. 
+- Gated Recurrent Units (GRUs) are an evolution of LSTMs trying to simplify the model for faster learning while keeping it's functionality. They achieve this by combining the input and forget gates into a single update gate and add a reset gate to determine how much of the past information should be forgotten. They again only have one output stream which also adds to the improved learning speed of the model.
+
+![RNN-Variants](images/RNN_variants.png)
+
+For example Akita et al created a LSTM based model that takes Text and Stock data as input to predict future prices. By taking ten companies and representing them as news, then transforming these news into so called paragraph vectors they manage to provide numerical data for the LSTM that it can work with. $$P_{t}$$ will become a vector of the numerical news values and $$N_{t}$$ are the corresponding stock prices at the timestamp t. These two vectors then get concatenated and put into the LSTM as an input. The corresponding output of the network will be $$N_{t+1}$$ where you can use basic loss functions to train the network. The reason behind taking ten companies and their news at a specific time is to look for a correlation between the impact of news from one company to the stock price of others. This LSTM method beats the baselines of other RNN methods used in predicting opening stock prices
+
+![Akita_LSTM](images/LSTM_Aktia.png)
+
+With this approach they managed to beat the competition in stock price prediction. Using the prediction of a certain price one could use leverage or option trading to amplify even small price movements. 
+
+**GNN**
+
+**CNN**
+
+**Transformers**
+
+**RL**
 
 **Examples**
 
