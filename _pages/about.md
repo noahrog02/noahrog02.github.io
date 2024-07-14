@@ -26,7 +26,7 @@ Overview of Machine Learning in Stock Market
 
 **Summary of Different ML Applications in Stock Trading**
 
-There are differents fields in which ML is being used in the Stock Market. The main and most interesting are:
+There are differents fields in which ML is being used in the stock market. The main and most interesting are:
 - **Stock price prediction:** This is probably the most common area, where ML will try to predict specific prices of one or more stocks for a specific time interval. This task is rather hard because a correct prediction of something like stock prices is influenced by numerous unpredictable factors, such as economic changes, political events, market sentiment, and even natural disasters. 
 - **Stock movement prediction:** The goal of this approach is the same as direct stock price prediction. But in this case the machine only predicts if the price goes up, down or sideways for a specific time interval, which takes the burdens of price prediction off of the machine. In some cases it also provides prediction about the steepness of the movement. 
 - **Portfolio management:** Portfolio management aims to have a fixed amount of capital allocated to numerous stocks. This basically comes down to a weight distribution problem, where the ML has to decide what stock gets what percentage of the capital provided. ML algorithms will try to find a correlation between different stocks and then readjust the wheights in fixed time intervals by selling and buying shares. 
@@ -50,7 +50,7 @@ It is therefore very possible to beat markets and make more money than the norma
 Survey of current ML Approaches
 ======
 
-Now to survey different approaches and usecases we will quickly clear off what kind of input we usually have when working with Machine Learning and the Stock Market
+Now to survey different approaches and usecases we will quickly clear off what kind of input we usually have when working with Machine Learning and the stock market
 
 Input essentially comes down to instrinsic (extracted from the stock itself) and extrinsic (text, fundamental data, industrial knowledge graphs, ...) data. The features of our input are:
 - Time series data
@@ -72,27 +72,32 @@ In this blog post, we will focus on the following ML methods:
 
 ![RNN-Variants](images/RNN_variants.png)
 
-For example Akita et al created a LSTM based model that takes Text and Stock data as input to predict future prices. By taking ten companies and representing them as news, then transforming these news into so called paragraph vectors they manage to provide numerical data for the LSTM that it can work with. $$P_{t}$$ will become a vector of the numerical news values and $$N_{t}$$ are the corresponding stock prices at the timestamp t. These two vectors then get concatenated and put into the LSTM as an input. The corresponding output of the network will be $$N_{t+1}$$ where you can use basic loss functions to train the network. The reason behind taking ten companies and their news at a specific time is to look for a correlation between the impact of news from one company to the stock price of others. This LSTM method beats the baselines of other RNN methods used in predicting opening stock prices
+For example Akita et al [1] created a LSTM based model that takes Text and Stock data as input to predict future prices. By taking ten companies and representing them as news, then transforming these news into so called paragraph vectors they managed to provide numerical data for the LSTM that it can work with. $$P_{t}$$ will become a vector of the numerical news values and $$N_{t}$$ are the corresponding stock prices at the timestamp $$t$$. These two vectors then get concatenated and put into the LSTM as an input. The corresponding output of the network will be $$N_{t+1}$$ where you can use basic loss functions to train the network. The reason behind taking ten companies and their news at a specific time is to look for a correlation between the impact of news from one company to the stock price of others. This LSTM method beats the baselines of other RNN methods used in predicting opening stock prices. As there is only a simple LSTM Network used they can adjust parameters by using a simple loss function like MSE. 
 
 ![Akita_LSTM](images/LSTM_Aktia.png)
 
 With this approach they managed to beat the competition in stock price prediction. Using the prediction of a certain price one could use leverage or option trading to amplify even small price movements. 
 
-**GNN**
+**Convolutional Neural Networks (CNN)**
 
-**CNN**
+CNNs are often used for processing and analyzing visual data. They work by automatically detecting and learning hierarchical patterns in images through layers of convolutional filters, pooling, and fully connected layers. This structure allows CNNs to effectively identify and classify objects within images. 
+
+![CNN](images/CNN.jpg)
+
+By slightly changing the problem formulation and constructing an image like input data it is still possible to use these CNN Models in the stock market. To create a grid like input, Lu et al. [2] created a 2D-Array representing a 10-day historical time series where each column is representing a day and the rows represent the opening price, closing price, highest price, lowest price and trading volume of each day. After a simple standarization process this input data is then acting as an input for a CNN Model which will input its extracted features into a LSTM Layer. This LSTM Layer will then produce many different output values that need to be g processed by a full connection layer to produce a singe Closing Price $$T+1$$ for the stock. 
+
+![CNN-LSTM](images/CNN-LSTM.jpg)
+
+By using the MSE of the real value and the produced prediction they updated the parameters of the two models.
+To evaluate their models performance they compared it's mean absolute error and root mean squared error to different other models in stock price prediction, where their model performed best. Again, using this approach like the simple LSTM approach, one could use the prediction of the machine to trade for single days and amplify the gains by using leverage.
+
+![CNN-LSTM-Results](images/CNN-LSTM-Results.png)
+
+**GNN**
 
 **Transformers**
 
 **RL**
-
-**Examples**
-
-Out of every subsection of used ML methods, i will quickly name a few examples based on papers that used these methods.
-- Akita et al created a LSTM based model that takes Text and Stock data as input to predict future prices. By taking ten companies and representing them as news, then transforming these news into so called paragraph vectors they manage to provide numerical data for the LSTM that it can work with. $$P_{t}$$ will become a vector of the numerical news values and $$N_{t}$$ are the corresponding stock prices at the timestamp t. These two vectors then get concatenated and put into the LSTM as an input. The corresponding output of the network will be $$N_{t+1}$$ where you can use basic loss functions to train the network. The reason behind taking ten companies and their news at a specific time is to look for a correlation between the impact of news from one company to the stock price of others. This LSTM method beats the baselines of other RNN methods used in predicting opening stock prices
-![Akita_LSTM](images/LSTM_Aktia.png)
-- Example 2
-- Example 3
 
 Deep dive into a specific ML Method (I am currently thinking about LSTM or RL)
 ======
