@@ -11,7 +11,7 @@ ignore: [link wird so gemacht](https://google.com)
 
 Introduction
 ======
-Money is a fundamental element of the stock market, where vast sums are exchanged daily. For example, one of the world's largest Exchanges, the NYSE, handles over $2 trillion in transactions each day. The stock market therefore plays a critical role in global finance
+Money is a fundamental element of the stock market, where vast sums are exchanged daily. For example, one of the world's largest Exchanges, the NASDAQ, handles over $200 billion in transactions each day. The stock market therefore plays a critical role in global finance.
 
 **What is the Stock Market**
 
@@ -19,7 +19,7 @@ The stock market is a collection of markets where stocks, are bought and sold. S
 
 **Evolution of Technology in Stock Market Predictions**
 
-When it comes to predicting prize movements, probably the oldest methods are simple chart analysis and manual calculations. Even though equations might be updated, these methods are still used today. But as the financial world grew, so did the need for faster and more accurate methods. This leads to the introduction of electronic trading systems in the late 20th century, which were soon followed by algorithmic trading. Algorithmic trading utilizes complex mathematical models to make rapid trading decisions. Today, the integration of Big Data and Artifical Intelligence represents a new movement in market prediction. This blog post aims to dive into the Machine Learning aspect of these new methods, to show what has already been achieved and what might be possible in the future. 
+When it comes to predicting prize movements, probably the oldest methods are simple chart analysis and manual calculations. Even though equations might be updated, these methods are still used today. But as the financial world grew, so did the need for faster and more accurate methods. This leads to the introduction of electronic trading systems in the late 20th century, which were soon followed by algorithmic trading. Algorithmic trading utilizes complex mathematical models to make rapid trading decisions. These algorithms still account for 70% of all trades in the stock market. Today, the integration of Big Data and Artifical Intelligence represents a new movement in market prediction. This blog post aims to dive into the Machine Learning aspect of these new methods, to show what has already been achieved and what might be possible in the future. 
 
 Overview of Machine Learning in Stock Market
 ======
@@ -27,17 +27,15 @@ Overview of Machine Learning in Stock Market
 **Summary of Different ML Applications in Stock Trading**
 
 There are differents fields in which ML is being used in the Stock Market. The main and most interesting are:
--Here i will again give a little introduction to each of the areas:-
 - **Stock price prediction:** This is probably the most common area, where ML will try to predict specific prices of one or more stocks for a specific time interval. This task is rather hard because a correct prediction of something like stock prices is influenced by numerous unpredictable factors, such as economic changes, political events, market sentiment, and even natural disasters. 
 - **Stock movement prediction:** The goal of this approach is the same as direct stock price prediction. But in this case the machine only predicts if the price goes up, down or sideways for a specific time interval, which takes the burdens of price prediction off of the machine. In some cases it also provides prediction about the steepness of the movement. 
 - **Portfolio management:** Portfolio management aims to have a fixed amount of capital allocated to numerous stocks. This basically comes down to a weight distribution problem, where the ML has to decide what stock gets what percentage of the capital provided. ML algorithms will try to find a correlation between different stocks and then readjust the wheights in fixed time intervals by selling and buying shares. 
 - **Trading strategies:** Providing trading strategies that a human can use to trade in the market is another research area of ML in stock. The goal is to use ML to find strategies like buy or sell signals that a human can easily understand and use. There exist plenty of trading strategies already and this approach could improve and add to these existing strategies. 
-- Subfields that also use ML in some cases (order execution and market making)
+- **Others:** There are some other use cases where the most common are order execution and market making. It is possible to use Machine Learning algorithms for large Buy or Sell orders of a single individual to make impact on price as small as possible. So called market maker are institutions that handle the transfer of stock from one individual to another. He may use Machine Learning to enable a smoother flow in markets that have high volume. 
 
 **ML and it's relevance in Stock Trading**
 
-Machine learning is a subset of artificial intelligence that involvses algorithms and statistical models that enable computers to perform different tasks without instructions. In this blog post, we will focus on the following ML methods:
--Here i will mention and give a small introduction to each:-
+Machine learning is a subset of artificial intelligence that involvses algorithms and statistical models enabling computers to perform different tasks without instructions. In this blog post, we will focus on the following ML methods:
 
 **Recurrent Neural Networks (RNN)** are powerful in handling and predicting sequences of data. Unlinke traditional feed forward neural networks that process inputs independently, RNNs have loops within them that allows information to persist. This makes them ideal for tasks where context from previous data helps predicting the next output. So perfect for Stocks which is just time-series data. By variating the standard RNN you can obtain even better results. Two variants are: 
 - Long Short-Term Memory Networks (LSTMs) to avoid the long-term dependency problem. They are practically good in remembering information for longer periods without forgetting important details by having additional input, forget and output gates. These gates determine what information should be remembered or forgotten as data flows through the network. Here, the input gate decides, which data should be used to influence the memory. The forget gate decides which values from the input should be kept or forgotten and the output gate determines what from the current memory state should be output. This makes them extremely effective for tasks involving complex dependencies over time, such as long-term stock behaviour. 
