@@ -41,9 +41,17 @@ As commonly known, Machine Learning is very strong in handling large data source
 
 Another powerful aspect is the possibility to use many different sources as input as long as they are convertible to numerical value. For example not only the stock price but also news articles for the corresponding company may be used. In doing so, the machine is resisting against the unpredictable nature of the stock market. 
 
+![Motivation](images/Motivation.png)
+
+This graph from Liu et al. displays how with the use of their DDPG agent they outperformed the Minimum Variance and Dow Jones Index. This was done by simulating three portfolios where one was holding the Dow Jones Index, the second was holding the Minimum Variance Index and the third was managed by an DDPG Reinforcement Learning agent. For our purposes it is only necessary to understand that the Minimum Variance and Dow Jones Index move in a way that the market is moving in general as they take many different stocks into account. One is said to beat the market if he manages to gain a higher return rate over a specific time interval than the market is moving in general. For the DDPG Agent of Liu et. al this was strongly the case where they had a near 50% higher return rate than the market in general.
+
+It is therefore very possible to beat markets and make more money than the normal trader by using Machine Learning. We will now come to evaluate different Machine Learning models and how they can be used to fulfill the named applications. 
+
 **Used models in Stock Market**
 
 In this blog post, we will focus on the following ML methods:
+
+![ML-Variants](images/Different_MLs.png)
 
 **Recurrent Neural Networks (RNN)** are powerful in handling and predicting sequences of data. Unlinke traditional feed forward neural networks that process inputs independently, RNNs have loops within them that allows information to persist. This makes them ideal for tasks where context from previous data helps predicting the next output. So perfect for Stocks which is just time-series data. By variating the standard RNN you can obtain even better results. Two variants are: 
 - Long Short-Term Memory Networks (LSTMs) to avoid the long-term dependency problem. They are practically good in remembering information for longer periods without forgetting important details by having additional input, forget and output gates. These gates determine what information should be remembered or forgotten as data flows through the network. Here, the input gate decides, which data should be used to influence the memory. The forget gate decides which values from the input should be kept or forgotten and the output gate determines what from the current memory state should be output. This makes them extremely effective for tasks involving complex dependencies over time, such as long-term stock behaviour. 
@@ -54,7 +62,6 @@ In this blog post, we will focus on the following ML methods:
 **CNN**
 **Transformers**
 **RL**
-![ML-Variants](images/Different_MLs.png)
 
 Survey of current ML Approaches
 ======
