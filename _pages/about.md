@@ -86,7 +86,7 @@ CNNs are often used for processing and analyzing visual data. They work by autom
 
 By slightly changing the problem formulation and constructing an image like input data it is still possible to use these CNN Models in the stock market. To create a grid like input, Lu et al. [2] created a 2D-Array representing a 10-day historical time series where each column is representing a day and the rows represent the opening price, closing price, highest price, lowest price and trading volume of each day. After a simple standarization process this input data is then acting as an input for a CNN Model which will input its extracted features into a LSTM Layer. This LSTM Layer will then produce many different output values that need to be g processed by a full connection layer to produce a singe Closing Price $$T+1$$ for the stock. 
 
-![CNN-LSTM](images/CNN-LSTM.jpg)
+![CNN-LSTM](images/CNN_LSTM.jpg)
 
 By using the MSE of the real value and the produced prediction they updated the parameters of the two models.
 To evaluate their models performance they compared it's mean absolute error and root mean squared error to different other models in stock price prediction, where their model performed best. Again, using this approach like the simple LSTM approach, one could use the prediction of the machine to trade for single days and amplify the gains by using leverage.
