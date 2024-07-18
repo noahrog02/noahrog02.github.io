@@ -31,7 +31,7 @@ There are differents fields in which ML is being used in the stock market. The m
 - **Stock movement prediction:** The goal of this approach is the same as direct stock price prediction. But in this case the machine only predicts if the price goes up, down or sideways for a specific time interval, which takes the burdens of price prediction off of the machine. In some cases it also provides prediction about the steepness of the movement. 
 - **Portfolio management:** Portfolio management aims to have a fixed amount of capital allocated to numerous stocks. This basically comes down to a weight distribution problem, where the ML has to decide what stock gets what percentage of the capital provided. ML algorithms will try to find a correlation between different stocks and then readjust the wheights in fixed time intervals by selling and buying shares. 
 - **Trading strategies:** Providing trading strategies that a human can use to trade in the market is another research area of ML in stock. The goal is to use ML to find strategies like buy or sell signals that a human can easily understand and use. There exist plenty of trading strategies already and this approach could improve and add to these existing strategies. 
-- **Others:** There are some other use cases where the most common are order execution and market making. It is possible to use Machine Learning algorithms for large Buy or Sell orders of a single individual to make impact on price as small as possible. So called market maker are institutions that handle the transfer of stock from one individual to another. He may use Machine Learning to enable a smoother flow in markets that have high volume.
+- **Others:** There are some other use cases where the most common are order execution and market making. It is possible to use Machine Learning algorithms for large Buy or Sell orders of a single individual that would have too much impact on the price of the underlying stock if volume is too low. The goal is to distribute the order over one or two trading days in a way that it gets sucked up by the market without making too much of an impact. So called market makers are institutions that handle the transfer of stock from one individual to another. They may use Machine Learning to enable a smoother flow in markets that have high volume.
 
 **Why use Machine Learning for Stock**
 
@@ -93,7 +93,21 @@ To evaluate their models performance they compared it's mean absolute error and 
 
 ![CNN-LSTM-Results](images/CNN-LSTM-Results.png)
 
-**GNN**
+**Graph Neural Networks (GNN)**
+
+By using Graph Neural Networks we can create a Machine that is capable of predicting the markets using a graph where nodes may represent companies and edges a correlation between them. In general graphs are used to represent things like social media networks, or molecules. These graphs can be represented by an adjacency matrix. //
+It is hard to analyse these graphs because of their inconsitent form, where nodes can have different amount of neighbours. This is not the case for image like data that CNNs can work with. In case of an image we have a fixed grid with a fixed size. CNNs fail in working with graphs because of their arbitrary size of the graph, and the complex topology. //
+GNNs process graph-structured data by iteratively updating node representations through layers. They perform message passing where each node aggregates information from its neighbors. This aggregated information is then transformed using learned weights, followed by applying a non-linear activation function like ReLU. Repeating this across multiple layers, GNNs refine node representations by incorporating progressively larger neighborhoods, resulting in final node features that capture both local and global graph structures, useful for tasks such as node classification and link prediction.
+
+![GNN](images/GNN.png)
+
+Xu et al. proposed a method of using GNNs to predict the behavior of stocks that have already hit a price limit. A price limit in certain markets limits a stock to not rise above a daily limit to prevent excessive volatility. Their model predicts whether a price-limit-hitting stock will close at the price limit (Type 1) or below it (Type 2) by using a Hierarchical GNN. HGNNs combine multiple level of information like stock data, relationships between stocks, and overall market trends. The input to their HGNN includes historical stock sequences, technical indicators and a stock relation graph. The model uses LSTM networks to extract historical features and MLP to extract limit-related features. These features are then processed through hierarchical layers that consider node, relation and graph views using graph convolution and attention mechanisms. The final output is then classified using a fully connected layer to predict wheter a price-limit-hitting stock is Type 1 or 2. 
+
+![HGNN](images/HGNN.png)
+
+By using this information one may short Type 2 price-limit-hitting-stocks and buy Type 1 as they are likely to trade higher the next day. The accuracy using this model can be seen in the table below, where the authors compared the accuracy of different models in two different markets SSE and SZSE. 
+
+![HGNN_Results](images/HGNN_Results.png)
 
 **Transformers**
 
