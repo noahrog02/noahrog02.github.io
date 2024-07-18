@@ -95,8 +95,8 @@ To evaluate their models performance they compared it's mean absolute error and 
 
 **Graph Neural Networks (GNN)**
 
-By using Graph Neural Networks we can create a Machine that is capable of predicting the markets using a graph where nodes may represent companies and edges a correlation between them. In general graphs are used to represent things like social media networks, or molecules. These graphs can be represented by an adjacency matrix. //
-It is hard to analyse these graphs because of their inconsitent form, where nodes can have different amount of neighbours. This is not the case for image like data that CNNs can work with. In case of an image we have a fixed grid with a fixed size. CNNs fail in working with graphs because of their arbitrary size of the graph, and the complex topology. //
+By using Graph Neural Networks we can create a Machine that is capable of predicting the markets using a graph where nodes may represent companies and edges a correlation between them. In general graphs are used to represent things like social media networks, or molecules. These graphs can be represented by an adjacency matrix. <br>
+It is hard to analyse these graphs because of their inconsitent form, where nodes can have different amount of neighbours. This is not the case for image like data that CNNs can work with. In case of an image we have a fixed grid with a fixed size. CNNs fail in working with graphs because of their arbitrary size of the graph, and the complex topology. <br>
 GNNs process graph-structured data by iteratively updating node representations through layers. They perform message passing where each node aggregates information from its neighbors. This aggregated information is then transformed using learned weights, followed by applying a non-linear activation function like ReLU. Repeating this across multiple layers, GNNs refine node representations by incorporating progressively larger neighborhoods, resulting in final node features that capture both local and global graph structures, useful for tasks such as node classification and link prediction.
 
 ![GNN](images/GNN.png)
