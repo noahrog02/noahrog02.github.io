@@ -115,7 +115,7 @@ Transformer-based models are highly effective in language processing due to thei
 
 ![Transformer](images/TransformerBased.png)
 
-Zhou, Ma and Liu used BERT creating a model that can predict market events. An event in the stock market is for example a so called earings call, which happen quarterly, where the companie presents the results of the last quarter and tries to explain future directions, or another example would be a board member of the company buying or selling the stock. All these events are often followed by price movement, where the authors tried to predict if this price movement is positive or negative. <br>
+Zhou, Ma and Liu used BERT creating a model that can predict market events. An event in the stock market is for example a so called earings call, which happen quarterly, where the company presents the results of the last quarter and tries to explain future directions, or another example would be a board member of the company buying or selling the stock. All these events are often followed by price movement, where the authors tried to predict if this price movement is positive or negative. <br>
 BERT will get a news article of the corresponding company as an input, where every word of the article is called a token. These tokens will then be classified by BERT and transformed in some numerical value $$h_{1}$$ to $$h_{n}$$. Additionally BERT will create a so called $$h_{cls}$$ token that classifies the whole news article in a single numerical value. They then use a low-level and a high level-detector feed forward network that aims to give predictions, wheter a buy or sell event is happening. The low-level detector network will get the classified values $$h_{1}$$ to $$h_{n}$$ as an input and produce a low-level prediction based on these values. This low-level prediction together with the $$h_{cls}$$ of BERT will then be forwarded into the high-level detector which will produce the final high-level prediction. 
 
 ![Event_Transformer](images/Event_Transformer.png)
@@ -126,13 +126,36 @@ The authors used the predictions to buy or short a stock at the news articles' p
 
 Win Rate stands for the overall winning rate (rate of transactions that have a return over 0) and big win rate (rate of transactions that have a return over 1%). Ave. Return stands for the average return on each transaction. Exc. Return stands for the total excess returns over the market when starting with $10000 and invest $2000 to each detected trading signal. Num. Trans. stands for the number of transactions (valid trading signals) of each model.
 
-**RL**
+**Reinforcement Learning**
 
-Deep dive into a specific ML Method (I am currently thinking about LSTM or RL)
+Reinforcement learning is probably the most promising model for stock trading. This model involves an agent that takes actions based on a given policy in response to a certain state and reward from the environment. During the learning phase the agent iteratively interacts with the environment, updating its policy parameters based on the rewards received from its actions, using mathematical equations like the Bellman Equation. Ideally, once the learning is complete, the agent will have a table of state-action pairs that have the best rewards for every possible state in the environment.
+
+![RL](images/RL_func.png)
+
+Using fixed tables of state-action pairs will not work in an environment like the stock market as there are infinite possible states. Therefore, when training an agent, one has to use a probability distribution for states and their corresponding actions. These can be learned by using variations to the Bellman Equation like Q-Learning and Policy Gradient. We will now look at a detailed example how anyone can use the GitHub repository FinRL (Financial Reinforcement Learning) to create, learn and use a reinforcement learning agent that is capable of trading in the stock market as its environment. 
+
+Deep dive into FinRL
 ======
-- Detailed explanation of the chosen ML method
-- Presentation of empirical results obtained from the model
-- Advantages and limitations of the method
+
+Financial reinforcement learning (FinRL) is the first open-source framework for financial reinforcement learning. It provides a toolkit for developing and evaluating reinforcement learning algorithms specifically for financial markets. FinRL aims to bridge the gap between finance and machine learning by offering resources and tools for both researchers and practitioners.
+
+**Use Cases**
+
+FinRL utilizes many different reinforcement learning agents that do certain trading tasks. These tasks may be Stock Trading, Portfolio Allocation, High Frequency Trading, Cryptocurrency Trading, Market Regulations or User-defined Tasks. The agent will make sequential decisions on a FinRL specific environments that is based on market data from Yahoo! Finance for example. 
+
+![FinRL_UseCases](images/FinRL_UseCases.jpg)
+
+In this detailed example we want to look at portfolio allocation which, as presented in the motivation part by Liu et al., yielded very good results when using the reinforcement learning agent DDPG. 
+
+**Agents and their benefits**
+
+FinRL provides nine different agents of which three are value based. These value based agents can only do single stock trading and are therefore of no use in this example. The other six agents are Actor-critic based and are all suitable for a portfolio allocation problem. These agents only have slight differences as seen in the table:
+
+![FinRL_Agents](images/FinRL_Agents.png)
+
+**Actor-critic Reinforcement Learning**
+
+Actor-critic reinforcement learning is the base of all agents in use and is a slight variation of plain reinforcement learning. 
 
 Case Study and Demos
 ======
