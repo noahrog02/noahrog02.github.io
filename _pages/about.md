@@ -141,7 +141,7 @@ Financial reinforcement learning (FinRL) is the first open-source framework for 
 
 **Use Cases**
 
-FinRL utilizes many different reinforcement learning agents that do certain trading tasks. These tasks may be Stock Trading, Portfolio Allocation, High Frequency Trading, Cryptocurrency Trading, Market Regulations or User-defined Tasks. The agent will make sequential decisions on a FinRL specific environments that is based on market data from Yahoo! Finance for example. 
+FinRL utilizes many different reinforcement learning agents that do certain trading tasks. These tasks may be Stock Trading, Portfolio Allocation, High Frequency Trading, Cryptocurrency Trading, Market Regulations or User-defined Tasks. The agent will make sequential decisions on FinRL specific environments that are based on market data from Yahoo! Finance for example. 
 
 ![FinRL_UseCases](images/FinRL_UseCases.jpg)
 
@@ -155,11 +155,21 @@ FinRL provides nine different agents of which three are value based. These value
 
 **Actor-critic Reinforcement Learning**
 
-Actor-critic reinforcement learning is the base of all agents in use and is a slight variation of plain reinforcement learning. 
+Actor-critic reinforcement learning is the base of all agents we use and is generally speaking a variation of plain reinforcement learning. In this variation our agent is the so called actor and simply represents a feed-forward network that tries to simulate a policy function. Additionally a Critic-Network tries to implement a Value and Q-Function. After the Actor-Network decides on a specific action based on the state, the environment will first feed the reward and next state of this action into the Critic-Network, which will compute a Q-Value. A Q-Value is basically a predicted reward for a state-action pair. This Q-Value will be compared to the actual reward to create a so called Advantage Function $$A_{π_{θ}}$$ that is equivalent to the TD error with the formular <br>
+$$A_{π_{θ}}(s_t, a_t) = r(s_t, a_t) + Q_{π_{θ}}(s_{t+1}, a_{t+1}) - Q_{π_{θ}}(s_t, a_t)$$ <br>
+The weights of the critic network will now be updated by using this TD error <br>
+$$w=w+αA_{π_{θ}}$$ <br>
+The actor network will then also update its weights by using this advantage function. This is done by sampling many different state action pairs and using gradient descent with the gradient: <br>
+$$
+\nabla J(\theta) \approx \sum_{t=0}^{T-1} \nabla_\theta \log \pi_\theta(a_t, s_t) A_{\pi_\theta}(s_t, a_t)
+$$
+<br>
+Resulting in updating the policy parameters of the actor network with this:
+$$
+\theta = \theta + \alpha \nabla J(\theta)
+$$
+<br>
 
-Case Study and Demos
-======
-I will provide images/videos here about the chosen ML Method. NeptuneAI or FinRL will be my motivator here. 
 
 Discussion of Weaknesses and Future Directions
 ======
