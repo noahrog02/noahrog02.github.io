@@ -109,7 +109,22 @@ By using this information one may short Type 2 price-limit-hitting-stocks and bu
 
 ![HGNN_Results](images/HGNN_Results.png)
 
-**Transformers**
+**Transformer based models**
+
+Transformer-based models are highly effective in language processing due to their use of self-attention networks, which help retain distant data and understand context by handling entire sequences of data simultaneously. They consist of layers of self-attention and feed-forward networks, enabling them to process and generate text with remarkable accuracy. The two most common transformer based language models are GPT and BERT. By leveraging their capabilities in handling text data, these models have become popular for classifying stock news articles, thereby aiding in predicting market movements. 
+
+![Transformer](images/Transformer.png)
+
+Zhou, Ma and Liu used BERT creating a model that can predict market events. An event in the stock market is for example a so called earings call, which happen quarterly, where the companie presents the results of the last quarter and tries to explain future directions, or another example would be a board member of the company buying or selling the stock. All these events are often followed by price movement, where the authors tried to predict if this price movement is positive or negative. <br>
+BERT will get a news article of the corresponding company as an input, where every word of the article is called a token. These tokens will then be classified by BERT and transformed in some numerical value $$h_{1}$$ to $$h_{n}$$. Additionally BERT will create a so called $$h_{cls}$$ token that classifies the whole news article in a single numerical value. They then use a low-level and a high level-detector feed forward network that aims to give predictions, wheter a buy or sell event is happening. The low-level detector network will get the classified values $$h_{1}$$ to $$h_{n}$$ as an input and produce a low-level prediction based on these values. This low-level prediction together with the $$h_{cls}$$ of BERT will then be forwarded into the high-level detector which will produce the final high-level prediction. 
+
+![Event_Transformer](images/Event_Transformer.png)
+
+The authors used the predictions to buy or short a stock at the news articles' publish time and close the transaction after two trading days. Their approach grately outperformed the market index. But they warn that it is very important to trade in the same minute that the news article is published, or the machine will have a negative return rate. 
+
+![Event_Transformer_Results](images/Event_Transformer_Results.png)
+
+Win Rate stands for the overall winning rate (rate of transactions that have a return over 0) || big win rate (rate of transactions that have a return over 1%). Ave. Return stands for the average return on each transaction. Exc. Return stands for the total excess returns over the market when starting with $10000 and invest $2000 to each detected trading signal. Num. Trans. stands for the number of transactions (valid trading signals) of each model.
 
 **RL**
 
