@@ -186,6 +186,21 @@ The reward $$r$$ of an action $$a$$ simply is the change of portfolio value. As 
 The policy is set and executed by the actor feed forward network. There is no real probability distribution that decides what action will be taken for what state, as this is done by the trained actor network. <br>
 The same holds for the Q-Value of the critic. 
 
+**Training the Agents**
+
+Each timestep $$t$$ will resemble one trading day, which means the actor will make daily trades. After extracting all the data we need we will simply create an environment that consists of each trading day as a state over the span of 11 years from 2009 to 2020. This is our training set. We will also create a set of states for 2020 to 2022 as our backtesting set. For FinRL one has to additionally define some values like the price of buying or selling a share which is basically the brokers fee. FinRL itself does not come with implementations of RL algorithms but provides a framework for applying existing RL algorithms to financial trading environments. Thats why, in our case, we will use the Actor-Critic RL Agents from [Stable Baselines 3](https://stable-baselines3.readthedocs.io/en/master/). <br>
+This means that the only part for us to do as a developer that uses FinRL, is to set up the environment and configure parameters like the learning rate, number of steps until policy update and entropy coefficient to encourage exploration of the SB3 Agents. In our case we left the parameters of every agent at default. <br>
+In the actual training phase the agent will learn based on 50000 time steps. This means that the agent will go over the whole training set approximately 16 times as there are 3000 trading days in our training set. The number of steps is set to five, which means that the agent will update its policy after every fifth timestep. 
+
+**Backtesting**
+
+After every agent has been trained, backtesting will be the last step to see how the agent would perform in the real market. First we will set up a sample portfolio that is fully invested in the Dow Jones Index and another that is fully invested into the Mean Variance Index. These two portfolios will create the baseline to see wheter the agents manage to beat the market or not. Lastly we will let the agents work on the backtesting environment. By tracking the value of each portfolio each day we get the following graph: 
+
+![FinRL_Results](images/FinRL_Results.png)
+
+The first thing to see is that every portfolio moved in the same pattern, basically having the same up and down movements. Yet no agent manages to fully beat the market to make more profit than the Mean Variance Index. Not even the DDPG agent or the TD3 agent, which is an improvement to the DDPG agent outperformed the market. This is contradictory to the graph by Liu et al. presented in the motivation part where they managed to greatly outperform the market. The exact reason for the clear difference might come from fine tuning aspects but also from the fact that the DDPG agent from Liu et al. never stopped training. Even when trading in the real market they enabled the agent to continue learning so that it catches new trends. <br>
+In the given example usage of FinRL we did not consider the fact of continuous learning as this requires a decent amount of extra work. 
+
 Discussion of Weaknesses and Future Directions
 ======
 - critical analysis of the gaps in current methodologies
