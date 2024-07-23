@@ -206,7 +206,12 @@ Discussion of Weaknesses and Future Directions
 
 Despite the promising applications of machine learning in stock market predictions, several weaknesses persist. Future directions for research and development are crucial to address these limitations and enhance the effectiveness and reliability of these models. 
 
-
+| **Weakness** | **Future Direction** |
+|--------------|----------------------|
+|              |                      |
+|              |                      |
+|              |                      |
+|              |                      |
 
 Conclusion
 ======
