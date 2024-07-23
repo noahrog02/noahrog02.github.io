@@ -215,8 +215,8 @@ Despite the promising applications of machine learning in stock market predictio
 
 Conclusion
 ======
-- Summary of findings and final thoughts
-- Encouragement for further research and development in this area
+In this post we have only looked at a few different examples of how ML can be used to predict the stock market. There are hundreds of other papers presenting their own approach with all of them having their own benefits and disadvantages. While machine learning offers significant potential for stock market predictions, it is not without its challenges. We did not discuss how large market players like hedge funds use ML, but some of them might have cracked the code to insanely beat baselines by using fine tuned ML approaches that were mentioned in this blog post. <br>
+Future work might prove promising results and it is safe to say that ML will play a big role in the stock market heading in the future. But it remains a question how healthy that might be for the market. 
 
 References
 ======
