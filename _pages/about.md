@@ -175,7 +175,16 @@ $$
 \theta = \theta + \alpha \nabla J(\theta)
 $$
 
+![ActorCritic](images/ActorCritic.png)
 
+**Problem formulation for Portfolio Management**
+
+To use RL, one has to define what the states, actions and rewards are. In our Portfolio Management approach we want the machine to trade on a fixed number of stocks $$D$$, because in training as well as later on in actually using the machine, we need to use the same $$D$$ stocks to get the best results. Here we might want to choose stocks from different sectors, or we want to choose stocks of companies that in some way work together. By doing so we will ensure diversity among different sectors of the market but still ensure that the machine might find corellations between different stocks that should move in the same directions. For our example we will set $$D=30$$ and simply take the same 30 stocks that are also used by the Dow Jones Index. <br>
+Each state $$s$$ in timestep $$t$$ will consist of the vectors $$\vec{p}$$ for the prices of each stock an $$\vec{h}$$ for the amount of shares that we hold of the corresponding stock where $$h_{i}$$ is the amount of stocks with $$p_{i}$$. Note that the values $$p_{i}$$ are not just simple numbers representing the exact price at time $$t$$ but in our example consist of yet 16 more values that represent high, low, open and close of $$t$$ but also 12 more indicators that might prove useful to the machine. Additionaly each state has a singe numerical value $$b$$ representing the remaining balance of the portfolio. This number can not go into the negative. <br>
+Our actions $$a$$ that the actor does are a set of actions on all $$D$$ stocks. The actor will change the values in $$\vec{h}$$ by selling, buying or holding each $$h_{i}$$. An action is configured in a way that the machine cannot change $$b$$ into a negative value, so we do not overshoot our available funds. This means that $$\vec{p}$$ will be changed by only the environment and nothing else. <br>
+The reward $$r$$ of an action $$a$$ simply is the change of portfolio value. As we want the machine to make money, a positive change is associated with a positive reward. <br>
+The policy is set and executed by the actor feed forward network. There is no real probability distribution that decides what action will be taken for what state, as this is done by the trained actor network. <br>
+The same holds for the Q-Value of the critic. 
 
 Discussion of Weaknesses and Future Directions
 ======
