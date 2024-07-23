@@ -115,7 +115,7 @@ Transformer-based models are highly effective in language processing due to thei
 
 ![Transformer](images/TransformerBased.png)
 
-Zhou, Ma and Liu used BERT creating a model that can predict market events. An event in the stock market is for example a so called earings call, which happen quarterly, where the company presents the results of the last quarter and tries to explain future directions, or another example would be a board member of the company buying or selling the stock. All these events are often followed by price movement, where the authors tried to predict if this price movement is positive or negative. <br>
+Zhou, Ma and Liu used BERT creating a model that can predict market events. An event in the stock market is for example a so called earings call, which happen quarterly, where the company presents the results of the last quarter and tries to explain future directions. Or maybe a board member of the company buying or selling the stock. All these events are often followed by price movement, where the authors tried to predict if this price movement is positive or negative. <br>
 BERT will get a news article of the corresponding company as an input, where every word of the article is called a token. These tokens will then be classified by BERT and transformed in some numerical value $$h_{1}$$ to $$h_{n}$$. Additionally BERT will create a so called $$h_{cls}$$ token that classifies the whole news article in a single numerical value. They then use a low-level and a high level-detector feed forward network that aims to give predictions, wheter a buy or sell event is happening. The low-level detector network will get the classified values $$h_{1}$$ to $$h_{n}$$ as an input and produce a low-level prediction based on these values. This low-level prediction together with the $$h_{cls}$$ of BERT will then be forwarded into the high-level detector which will produce the final high-level prediction. 
 
 ![Event_Transformer](images/Event_Transformer.png)
@@ -155,20 +155,26 @@ FinRL provides nine different agents of which three are value based. These value
 
 **Actor-critic Reinforcement Learning**
 
-Actor-critic reinforcement learning is the base of all agents we use and is generally speaking a variation of plain reinforcement learning. In this variation our agent is the so called actor and simply represents a feed-forward network that tries to simulate a policy function. Additionally a Critic-Network tries to implement a Value and Q-Function. After the Actor-Network decides on a specific action based on the state, the environment will first feed the reward and next state of this action into the Critic-Network, which will compute a Q-Value. A Q-Value is basically a predicted reward for a state-action pair. This Q-Value will be compared to the actual reward to create a so called Advantage Function $$A_{π_{θ}}$$ that is equivalent to the TD error with the formular <br>
-$$A_{π_{θ}}(s_t, a_t) = r(s_t, a_t) + Q_{π_{θ}}(s_{t+1}, a_{t+1}) - Q_{π_{θ}}(s_t, a_t)$$ <br>
-The weights of the critic network will now be updated by using this TD error <br>
-$$w=w+αA_{π_{θ}}$$ <br>
-The actor network will then also update its weights by using this advantage function. This is done by sampling many different state action pairs and using gradient descent with the gradient: <br>
+Actor-critic reinforcement learning is the base of all agents we use and is generally speaking a variation of plain reinforcement learning. In this variation our agent is the so called actor and simply represents a feed-forward network that tries to simulate a policy function. Additionally a Critic-Network tries to implement a Value-Function (in our case a Q-Value). After the Actor-Network decides on a specific action based on the state, the environment will first feed the reward and next state of this action into the Critic-Network, which will compute a Q-Value. A Q-Value is basically a predicted reward for a state-action pair. This Q-Value will be compared to the actual reward to create a so called Advantage Function $$A_{π_{θ}}$$ that is also called TD error with the formular 
+
+$$A_{π_{θ}}(s_t, a_t) = r(s_t, a_t) + Q_{π_{θ}}(s_{t+1}, a_{t+1}) - Q_{π_{θ}}(s_t, a_t)$$ 
+
+The weights of the critic network will now be updated by using this TD error
+
+$$w=w+αA_{π_{θ}}$$ 
+
+The actor network will then also update its weights by using this advantage function. This is done by sampling many different state action pairs and using gradient descent with the gradient: 
+
 $$
 \nabla J(\theta) \approx \sum_{t=0}^{T-1} \nabla_\theta \log \pi_\theta(a_t, s_t) A_{\pi_\theta}(s_t, a_t)
 $$
-<br>
+
 Resulting in updating the policy parameters of the actor network with this:
+
 $$
 \theta = \theta + \alpha \nabla J(\theta)
 $$
-<br>
+
 
 
 Discussion of Weaknesses and Future Directions
