@@ -203,8 +203,15 @@ In the given example usage of FinRL we did not consider the fact of continuous l
 
 Discussion of Weaknesses and Future Directions
 ======
-- critical analysis of the gaps in current methodologies
-- insights into potential future developments in ML for stock trading
+
+Despite the promising applications of machine learning in stock market predictions, several weaknesses persist. Future directions for research and development are crucial to address these limitations and enhance the effectiveness and reliability of these models. 
+
+| **Weakness** | **Future Direction** |
+|--------------|----------------------|
+|              |                      |
+|              |                      |
+|              |                      |
+|              |                      |
 
 Conclusion
 ======
