@@ -208,10 +208,10 @@ Despite the promising applications of machine learning in stock market predictio
 
 | **Weakness** | **Future Direction** |
 |--------------|----------------------|
-|              |                      |
-|              |                      |
-|              |                      |
-|              |                      |
+|Simple ML like the basic example of FinRL does not beat the baselines of the market|Try to make even complicated ML approaches more accessible and fine tune the basic models|
+|The stock market still remains unpredictable. There are times where the whole market simply breaks and a machine will loose money if it does not know that these times are coming|It is possible to incorporate even more data sources. A machine could be developed that gets input from stock data, news data and maybe even other sources all at once. It will see devastating events coming|
+|There is still no real time model that trades live on the market. For example the event prediction transformer based model will only work properly if there is zero latency between the publish time of a news article and the immediate buy or short action of the underlying stock|Develop such a real-time prediction model with minimal latency|
+|Models are not robust among differnet stocks or markets. The models will always only work on the conditions one has trained them|Develop a model suitable for all markets. Like a professional human trader|
 
 Conclusion
 ======
