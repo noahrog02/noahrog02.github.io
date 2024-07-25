@@ -141,7 +141,7 @@ Financial reinforcement learning (FinRL) is the first open-source framework for 
 
 **Use Cases**
 
-FinRL utilizes many different reinforcement learning agents that do certain trading tasks. These tasks may be Stock Trading, Portfolio Allocation, High Frequency Trading, Cryptocurrency Trading, Market Regulations or User-defined Tasks. The agent will make sequential decisions on FinRL specific environments that are based on market data from ![Yahoo! Finance](https://finance.yahoo.com/) for example. 
+FinRL utilizes many different reinforcement learning agents that do certain trading tasks. These tasks may be Stock Trading, Portfolio Allocation, High Frequency Trading, Cryptocurrency Trading, Market Regulations or User-defined Tasks. The agent will make sequential decisions on FinRL specific environments that are based on market data from [Yahoo! Finance](https://finance.yahoo.com/) for example. 
 
 ![FinRL_UseCases](images/FinRL_UseCases.jpg)
 
