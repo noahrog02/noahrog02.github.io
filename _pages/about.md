@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-ignore: [link wird so gemacht](https://google.com)
+Seminar University of Stuttgart. By Noah Roggenbuck
 
 Introduction
 ======
