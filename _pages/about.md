@@ -54,8 +54,8 @@ When it comes to predicting prize movements, probably the oldest methods are sim
 There are differents fields in which ML is being used in the stock market. The main and most interesting are:
 - **Stock price prediction:** This is probably the most common area, where ML will try to predict specific prices of one or more stocks for a specific time interval. ![prediction](images/Prediction.png)
 - **Stock movement prediction:** The goal of this approach is the same as direct stock price prediction. But in this case the machine only predicts if the price goes up, down or sideways for a specific time interval. ![MovementPrediction](images/MovementPrediction.png)
-- **Portfolio management:** Portfolio management aims to have a fixed amount of capital allocated to numerous stocks. This basically comes down to a weight distribution problem, where the ML has to decide what stock gets what percentage of the capital provided. ![PortfolioManagement](images/PortfolioManagement.jpg)
-- **Trading strategies:** Providing trading strategies that a human can use to trade in the market is another research area of ML in stock. The goal is to use ML to find strategies like buy or sell signals that a human can easily understand and use.  
+- **Portfolio management:** Portfolio management aims to have a fixed amount of capital allocated to numerous stocks. This basically comes down to a weight distribution problem, where the ML has to decide what stock gets what percentage of the capital provided. ![PortfolioManagement](images/PortfolioAlloc.webp)
+- **Trading strategies:** Providing trading strategies that a human can use to trade in the market is another research area of ML in stock. The goal is to use ML to find strategies like buy or sell signals that a human can easily understand and use.  ![TradingStrategies](images/position-trading.png)
 - **Others:** There are some other use cases where the most common are order execution and market making. 
 
 ### Why use Machine Learning for Stock
