@@ -9,6 +9,8 @@ redirect_from:
 
 Seminar University of Stuttgart. By Noah Roggenbuck
 
+In this blog post, I explore the integration of Machine Learning (ML) in stock market prediction and trading. I delve into various ML applications, such as stock price prediction, portfolio management, and trading strategies and present how different ML models have been used to solve these tasks. 
+
 ## Table of Contents
 - [Introduction](#introduction)
   - [What is the Stock Market](#what-is-the-stock-market)
@@ -50,21 +52,17 @@ When it comes to predicting prize movements, probably the oldest methods are sim
 ### Summary of Different ML Applications in Stock Trading
 
 There are differents fields in which ML is being used in the stock market. The main and most interesting are:
-- **Stock price prediction:** This is probably the most common area, where ML will try to predict specific prices of one or more stocks for a specific time interval. This task is rather hard because a correct prediction of something like stock prices is influenced by numerous unpredictable factors, such as economic changes, political events, market sentiment, and even natural disasters. 
-- **Stock movement prediction:** The goal of this approach is the same as direct stock price prediction. But in this case the machine only predicts if the price goes up, down or sideways for a specific time interval, which takes the burden of price prediction off of the machine. In some cases it also provides prediction about the steepness of the movement. 
-- **Portfolio management:** Portfolio management aims to have a fixed amount of capital allocated to numerous stocks. This basically comes down to a weight distribution problem, where the ML has to decide what stock gets what percentage of the capital provided. ML algorithms will try to find a correlation between different stocks and then readjust the wheights in fixed time intervals by selling and buying shares. 
-- **Trading strategies:** Providing trading strategies that a human can use to trade in the market is another research area of ML in stock. The goal is to use ML to find strategies like buy or sell signals that a human can easily understand and use. There exist plenty of trading strategies already and this approach could improve and add to these existing strategies. 
-- **Others:** There are some other use cases where the most common are order execution and market making. It is possible to use Machine Learning algorithms for large Buy or Sell orders of a single individual that would have too much impact on the price of the underlying stock if volume is too low. The goal is to distribute the order over one or two trading days in a way that it gets sucked up by the market without making too much of an impact. So called market makers are institutions that handle the transfer of stock from one individual to another. They may use Machine Learning to enable a smoother flow in markets that have high volume.
+- **Stock price prediction:** This is probably the most common area, where ML will try to predict specific prices of one or more stocks for a specific time interval. ![prediction](images/Prediction.png)
+- **Stock movement prediction:** The goal of this approach is the same as direct stock price prediction. But in this case the machine only predicts if the price goes up, down or sideways for a specific time interval. ![MovementPrediction](images/MovementPrediction.png)
+- **Portfolio management:** Portfolio management aims to have a fixed amount of capital allocated to numerous stocks. This basically comes down to a weight distribution problem, where the ML has to decide what stock gets what percentage of the capital provided. ![PortfolioManagement](images/PortfolioManagement.jpg)
+- **Trading strategies:** Providing trading strategies that a human can use to trade in the market is another research area of ML in stock. The goal is to use ML to find strategies like buy or sell signals that a human can easily understand and use.  
+- **Others:** There are some other use cases where the most common are order execution and market making. 
 
-### Why use Machine Learning for Stock**
+### Why use Machine Learning for Stock
 
-Machine learning is a subset of artificial intelligence that involvses algorithms and statistical models enabling computers to perform different tasks without instructions.
+Machine learning is a subset of artificial intelligence that uses algorithms and statistical models to enable computers to perform tasks without explicit instructions. It is strong at handling large datasets, making it ideal for the stock market where it can analyze extensive historical data. Unlike human-driven technical analysis, machine learning can identify patterns and movements that are not apparent to humans. Additionally, it can integrate various data sources, such as stock prices and news articles, converting them into numerical values to better predict market behavior despite its inherent unpredictability.
 
-As commonly known, Machine Learning is very strong in handling large data sources. This is very suitable for the stock market where we can give the machine all kinds of inputs, most importantly large history graphs. The market does indeed move in patterns which is why strategies like Technical Analysis are even successful in the first place. But where humans draw lines and try to predict future prices based on some well known patterns, a machine can predict based on very different aspects. In fact, once something like a Feed Forward Network is fully trained it does not follow any pattern that is understandable to a human. This means that the machine is seeing patterns and movements from the past that basic human Technical Analysis does not even take into account. 
-
-Another powerful aspect is the possibility to use many different sources as input as long as they are convertible to numerical value. For example not only the stock price but also news articles for the corresponding company may be used. In doing so, the machine is resisting against the unpredictable nature of the stock market. 
-
-![Motivation](images/Motivation.png)
+![Motivation](images/Motivation.png) test
 
 This graph from Liu et al. displays how, with the use of their DDPG agent, they outperformed the Minimum Variance and Dow Jones Index. Three portfolios where one was holding the Dow Jones Index, the second was holding the Minimum Variance Index and the third was managed by an DDPG Reinforcement Learning agent can be seen in this graph. For our purposes it is only necessary to understand that the Minimum Variance and Dow Jones Index move in a way that the market is moving in general as they take many different stocks into account. One is said to beat the market if he manages to gain a higher return rate over a specific time interval than the market is moving in general. For the DDPG Agent of Liu et. al this was strongly the case where they had a near 50% higher return rate than the market in general.
 
